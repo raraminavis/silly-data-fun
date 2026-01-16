@@ -90,7 +90,7 @@ class FanfictionAnalyzer:
         ax2.set_xlabel('Fandom')
         ax2.set_ylabel('Count')
         ax2.legend(title='Rating', bbox_to_anchor=(1.05, 1), loc='upper left')
-        plt.xticks(rotation=45, ha='right')
+        ax2.tick_params(axis='x', rotation=45)
         
         plt.tight_layout()
         plt.savefig(f'{self.output_dir}/rating_analysis.png', dpi=300, bbox_inches='tight')
@@ -111,6 +111,8 @@ class FanfictionAnalyzer:
         # Word count by fandom (box plot)
         ax2 = axes[0, 1]
         self.df.boxplot(column='words', by='fandom_searched', ax=ax2)
+        # Clear auto-generated title from boxplot and set our own
+        plt.suptitle('')  # Remove the automatic suptitle
         ax2.set_title('Word Count by Fandom')
         ax2.set_xlabel('Fandom')
         ax2.set_ylabel('Word Count')
