@@ -114,8 +114,7 @@ class FanfictionAnalyzer:
         ax2.set_title('Word Count by Fandom')
         ax2.set_xlabel('Fandom')
         ax2.set_ylabel('Word Count')
-        plt.sca(ax2)
-        plt.xticks(rotation=45, ha='right')
+        ax2.tick_params(axis='x', rotation=45)
         
         # Average word count by fandom (bar chart)
         ax3 = axes[1, 0]
@@ -209,7 +208,7 @@ class FanfictionAnalyzer:
         ax2.set_xlabel('Fandom')
         ax2.set_ylabel('Count')
         ax2.legend(title='Category', bbox_to_anchor=(1.05, 1), loc='upper left')
-        plt.xticks(rotation=45, ha='right')
+        ax2.tick_params(axis='x', rotation=45)
         
         plt.tight_layout()
         plt.savefig(f'{self.output_dir}/category_analysis.png', dpi=300, bbox_inches='tight')
