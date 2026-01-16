@@ -54,6 +54,20 @@ pip install -r requirements.txt
 
 ## Usage
 
+### Quick Start: Run the Demo
+
+Try the demo with sample data to see what the project does:
+
+```bash
+python demo.py
+```
+
+This will:
+- Generate sample fanfiction data
+- Run all analyses
+- Create visualizations in the `outputs/` directory
+- Show you what to expect from real data
+
 ### Option 1: Interactive Mode (Recommended)
 
 Run the main script and choose what to do:
@@ -87,7 +101,10 @@ silly-data-fun/
 ├── requirements.txt
 ├── .gitignore
 ├── main.py                    # Main pipeline script
+├── demo.py                    # Demo with sample data
+├── test_validation.py         # Validation tests
 ├── src/
+│   ├── __init__.py
 │   ├── ao3_scraper.py        # AO3 web scraper
 │   └── analyzer.py           # Data analysis module
 ├── data/                      # Scraped data (gitignored)
