@@ -166,8 +166,11 @@ def main():
         print("=" * 60)
         
         print("\nGenerated test outputs in 'outputs/' directory:")
-        for file in os.listdir('outputs'):
-            print(f"  - outputs/{file}")
+        if os.path.exists('outputs') and os.listdir('outputs'):
+            for file in os.listdir('outputs'):
+                print(f"  - outputs/{file}")
+        else:
+            print("  (No output files generated)")
         
         return True
         

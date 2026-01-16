@@ -19,6 +19,7 @@ class AO3Scraper:
     """Scraper for Archive of Our Own fanfiction metadata."""
     
     BASE_URL = "https://archiveofourown.org"
+    SUMMARY_MAX_LENGTH = 200  # Maximum characters to keep from summary
     
     def __init__(self, rate_limit: float = 5.0):
         """
@@ -30,7 +31,7 @@ class AO3Scraper:
         self.rate_limit = rate_limit
         self.session = requests.Session()
         self.session.headers.update({
-            'User-Agent': 'Mozilla/5.0 (compatible; FandomResearchBot/1.0)'
+            'User-Agent': 'Mozilla/5.0 (compatible; FandomResearchBot/1.0; Educational Research Project)'
         })
         
     def search_fandom(self, fandom_name: str, max_pages: int = 5) -> List[Dict]:
@@ -181,7 +182,7 @@ class AO3Scraper:
             # Summary
             summary_elem = work_element.find('blockquote', class_='summary')
             if summary_elem:
-                data['summary'] = summary_elem.get_text(strip=True)[:200]  # First 200 chars
+                data['summary'] = summary_elem.get_text(strip=True)[:self.SUMMARY_MAX_LENGTH]
             else:
                 data['summary'] = ''
             

@@ -112,7 +112,7 @@ class FanfictionAnalyzer:
         ax2 = axes[0, 1]
         self.df.boxplot(column='words', by='fandom_searched', ax=ax2)
         # Clear auto-generated title from boxplot and set our own
-        plt.suptitle('')  # Remove the automatic suptitle
+        plt.suptitle(None)  # Remove the automatic suptitle
         ax2.set_title('Word Count by Fandom')
         ax2.set_xlabel('Fandom')
         ax2.set_ylabel('Word Count')
